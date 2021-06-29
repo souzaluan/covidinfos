@@ -1,0 +1,75 @@
+@import '../Colors';
+@mixin content-container-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.infos-country-container {
+  display: flex;
+  justify-content: center;
+  section.infos-section {
+    display: flex;
+    margin: 50px 0;
+    justify-content: space-around;
+    width: 85%;
+    .card {
+      width: 300px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: $boxes-cards;
+      border-radius: 5px;
+      color: $texts-light;
+      line-height: 25px;
+      box-shadow: $shadow;
+      .country-title {
+        display: flex;
+        align-items: center;
+        width: 95px;
+        height: 40px;
+        color: $texts-dark;
+        h2 {
+          font-size: 1.5em;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        .flag {
+          margin-left: 12px;
+          width: 26px;
+          margin-bottom: 10px;
+        }
+      }
+      .number {
+        color: $texts-dark
+      }
+      .content {
+        @include content-container-style();
+      }
+    }
+    .card.last {
+      .cases-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 160px;
+        height: 40px;
+        color: $texts-dark;
+        h2 {
+          font-size: 1.4em
+        }
+      }
+      .content {
+        @include content-container-style();
+      }
+    }
+  }
+  div.error {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+  }
+}
