@@ -3,12 +3,12 @@ import {
   darkText, covid, shadow, boxesAndCards,
 } from './Variables';
 
-export const H1 = styled.h1`
+export const HeadingPrimary = styled.h1`
   color: ${darkText};
   margin: 25px 0;
   font-size: 22pt;
 `;
-export const H2 = styled.h2`
+export const HeadingSecondary = styled.h2`
   color: ${darkText};
   margin-bottom: 10px;
 `;

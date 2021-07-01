@@ -61,7 +61,7 @@ export const Title = styled.div`
   display: flex;
   justify-content: center;
 `;
-export const H1 = styled.div`
+export const HeadingPrimary = styled.h1`
   color: ${darkText};
   font-size: 1.7em;
   font-weight: 400;

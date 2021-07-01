@@ -39,7 +39,7 @@ export const CasesTitle = styled(Title)`
   justify-content: space-between;
   width: 160px;
 `;
-export const H2 = styled.h2`
+export const HeadingSecondary = styled.h2`
   font-size: 1.4em;
   font-weight: bold;
   margin-bottom: 10px;

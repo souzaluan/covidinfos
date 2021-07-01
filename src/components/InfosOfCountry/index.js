@@ -1,6 +1,14 @@
 import React from 'react';
 import {
-  InfosContainer, InfosSection, Card, CountryTitle, CasesTitle, H2, Flag, Content, Error,
+  InfosContainer,
+  InfosSection,
+  Card,
+  CountryTitle,
+  CasesTitle,
+  HeadingSecondary,
+  Flag,
+  Content,
+  Error,
 } from './InfosStyle';
 import {
   ValueDetail,
@@ -14,7 +22,7 @@ export default ({ info }) => {
         <InfosSection>
           <Card>
             <CountryTitle>
-              <H2>{data.country}</H2>
+              <HeadingSecondary>{data.country}</HeadingSecondary>
               <Flag src={`${data.countryInfo.flag}`} alt="Country flag" />
             </CountryTitle>
             <Content>
@@ -28,7 +36,7 @@ export default ({ info }) => {
           </Card>
           <Card>
             <CasesTitle>
-              <H2>Covid-19 Infos</H2>
+              <HeadingSecondary>Covid-19 Infos</HeadingSecondary>
             </CasesTitle>
             <Content>
               <div>

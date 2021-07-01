@@ -11,7 +11,7 @@ import {
   LinechartBox,
 } from './StyleWorldWide';
 import {
-  ContainerStyle, CovidDetail, H1, H2, ValueDetail, ChartsSubcontainer,
+  ContainerStyle, CovidDetail, HeadingPrimary, HeadingSecondary, ValueDetail, ChartsSubcontainer,
 } from '../ReusableStyles';
 import Disease from '../../Disease';
 import Map from '../Map';
@@ -80,9 +80,9 @@ export default () => {
       <ContainerStyle>
         <TitleSelect>
           <div>
-            <H1>
+            <HeadingPrimary>
               | <CovidDetail>Covid</CovidDetail> in all Countries
-            </H1>
+            </HeadingPrimary>
           </div>
           <SelectContainer>
             <Select onChange={(e) => updateInfosCountries(e.target.value)}>
@@ -98,15 +98,15 @@ export default () => {
       </ContainerStyle>
       <ContainerStyle>
         <div>
-          <H1>
+          <HeadingPrimary>
             | <CovidDetail>Covid</CovidDetail> in WorldWide
-          </H1>
+          </HeadingPrimary>
         </div>
         {worldwideInfos.length !== 0
                     && (
                     <CardsSubcontainer>
                       <Card>
-                        <div><H2>Cases</H2></div>
+                        <div><HeadingSecondary>Cases</HeadingSecondary></div>
                         <p>
                           Total: <ValueDetail>{worldwideInfos.cases.toLocaleString('pt-BR')}</ValueDetail>
                         </p>
@@ -121,7 +121,7 @@ export default () => {
                         </p>
                       </Card>
                       <Card>
-                        <div><H2>Deaths</H2></div>
+                        <div><HeadingSecondary>Deaths</HeadingSecondary></div>
                         <p>
                           Total: <ValueDetail>{worldwideInfos.deaths.toLocaleString('pt-BR')}</ValueDetail>
                         </p>
@@ -130,7 +130,7 @@ export default () => {
                         </p>
                       </Card>
                       <Card>
-                        <div><H2>Recovered</H2></div>
+                        <div><HeadingSecondary>Recovered</HeadingSecondary></div>
                         <p>
                           Total: <ValueDetail>{worldwideInfos.recovered.toLocaleString('pt-BR')}</ValueDetail>
                         </p>
@@ -144,9 +144,9 @@ export default () => {
       <LinechartContainer>
         <TitleSelect>
           <div>
-            <H1>
+            <HeadingPrimary>
               | <CovidDetail>Covid</CovidDetail> in WorldWide - Timeline
-            </H1>
+            </HeadingPrimary>
           </div>
           <SelectContainer>
             <Select onChange={(e) => updateTimelineType(e.target.value)}>

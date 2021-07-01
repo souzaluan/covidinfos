@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { VaccinesPage, VaccinesDetail, ChartVaccinesSubcontainer } from './VaccinesStyle';
-import { H1, ContainerStyle } from '../ReusableStyles';
+import { HeadingPrimary, ContainerStyle } from '../ReusableStyles';
 import Disease from '../../Disease';
 import Map from '../Map';
 
@@ -32,9 +32,9 @@ export default () => {
     <VaccinesPage>
       <ContainerStyle>
         <div>
-          <H1>
+          <HeadingPrimary>
             | <VaccinesDetail>Vaccines</VaccinesDetail> in all Countries
-          </H1>
+          </HeadingPrimary>
         </div>
         <ChartVaccinesSubcontainer>
           {vaccinesCountries.length && <Map data={vaccinesCountries} options={optionsMap} width="98%" height="100%" />}

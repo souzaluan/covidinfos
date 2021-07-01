@@ -6,7 +6,7 @@ import {
   ChartBox, HomePageMain, HomePageSection, Infos, CardInfo,
 } from './StyleMain';
 import {
-  CovidDetail, H1, H2, ValueDetail,
+  CovidDetail, HeadingPrimary, HeadingSecondary, ValueDetail,
 } from '../ReusableStyles';
 
 export default () => {
@@ -52,18 +52,18 @@ export default () => {
     <HomePageMain>
       <HomePageSection>
         <div>
-          <H1>
+          <HeadingPrimary>
             | <CovidDetail>Covid</CovidDetail> Today
-          </H1>
+          </HeadingPrimary>
         </div>
         <Infos>
           {covidContinentData.map((item) => (
             <CardInfo>
-              <H2>
+              <HeadingSecondary>
                 {item.continent === 'Australia-Oceania'
                   ? 'Oceania'
                   : item.continent}
-              </H2>
+              </HeadingSecondary>
               <p>
                 Today cases: <ValueDetail>{item.todayCases.toLocaleString('pt-BR')}</ValueDetail>
               </p>

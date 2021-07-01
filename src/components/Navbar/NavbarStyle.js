@@ -28,18 +28,18 @@ export const Image = styled.img`
   border-radius: 5px;
   box-shadow: ${shadow};
 `;
-export const H1 = styled.h1`
+export const HeadingPrimary = styled.h1`
   margin-bottom: 3px;
   font-weight: bold;
   font-size: 1.4em;
   color: ${darkText};
 `;
-export const HeaderH3 = styled.h3`
+export const HeaderHeadingTertiary = styled.h3`
   color: ${lightText};
   font-size: 1.1em;
   font-weight: 300;
 `;
-export const MainMenuH3 = styled.h3`
+export const MainMenuHeadingTertiary = styled.h3`
   margin-bottom: 20px;
   color: ${lightText};
   font-size: 0.9em;

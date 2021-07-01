@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Icon from '@material-ui/icons/Search';
 import {
-  H1,
+  HeadingPrimary,
   Interface,
   SearchContainer,
   Search, SearchBar,
@@ -26,7 +26,7 @@ export default () => {
     <SearchContainer>
       <Interface>
         <Title>
-          <H1>Enter the desired country</H1>
+          <HeadingPrimary>Enter the desired country</HeadingPrimary>
         </Title>
         <Search>
           <SearchBar>
