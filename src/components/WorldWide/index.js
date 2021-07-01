@@ -1,5 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import './WorldWide.scss';
+import {
+  WorldWidePage,
+  TitleSelect,
+  SelectContainer,
+  Select,
+  ChartMapSubcontainer,
+  CardsSubcontainer,
+  Card,
+  LinechartContainer,
+  LinechartBox,
+} from './StyleWorldWide';
+import {
+  ContainerStyle, CovidDetail, H1, H2, ValueDetail, ChartsSubcontainer,
+} from '../ReusableStyles';
 import Disease from '../../Disease';
 import Map from '../Map';
 import OptionsMap from './ConfigsMap';
@@ -63,90 +76,90 @@ export default () => {
     populateInfosCountries();
   }, []);
   return (
-    <div className="worldwide-page">
-      <div className="map-container">
-        <div className="map-title-select">
-          <div className="map-title title">
-            <h1>
-              | <span className="covid">Covid</span> in all Countries
-            </h1>
+    <WorldWidePage>
+      <ContainerStyle>
+        <TitleSelect>
+          <div>
+            <H1>
+              | <CovidDetail>Covid</CovidDetail> in all Countries
+            </H1>
           </div>
-          <div className="select-container">
-            <select onChange={(e) => updateInfosCountries(e.target.value)}>
+          <SelectContainer>
+            <Select onChange={(e) => updateInfosCountries(e.target.value)}>
               <option value="cases" selected>Cases</option>
               <option value="deaths">Deaths</option>
               <option value="recovered">Recovered</option>
-            </select>
-          </div>
-        </div>
-        <div className="map-subcontainer">
+            </Select>
+          </SelectContainer>
+        </TitleSelect>
+        <ChartMapSubcontainer>
           {infosCountries.length && <Map data={infosCountries} options={configsMap} width="98%" height="100%" />}
-        </div>
-      </div>
-      <div className="cards-container">
-        <div className="cards-title title">
-          <h1>
-            | <span className="covid">Covid</span> in WorldWide
-          </h1>
+        </ChartMapSubcontainer>
+      </ContainerStyle>
+      <ContainerStyle>
+        <div>
+          <H1>
+            | <CovidDetail>Covid</CovidDetail> in WorldWide
+          </H1>
         </div>
         {worldwideInfos.length !== 0
                     && (
-                    <div className="cards-subcontainer">
-                      <div className="card-worldwide cases">
-                        <div className="card-title"><h2>Cases</h2></div>
+                    <CardsSubcontainer>
+                      <Card>
+                        <div><H2>Cases</H2></div>
                         <p>
-                          Total: <span className="number">{worldwideInfos.cases.toLocaleString('pt-BR')}</span>
+                          Total: <ValueDetail>{worldwideInfos.cases.toLocaleString('pt-BR')}</ValueDetail>
                         </p>
                         <p>
-                          Active: <span className="number">{worldwideInfos.active.toLocaleString('pt-BR')}</span>
+                          Active: <ValueDetail>{worldwideInfos.active.toLocaleString('pt-BR')}</ValueDetail>
                         </p>
                         <p>
-                          Critical: <span className="number">{worldwideInfos.critical.toLocaleString('pt-BR')}</span>
+                          Critical: <ValueDetail>{worldwideInfos.critical.toLocaleString('pt-BR')}</ValueDetail>
                         </p>
                         <p>
-                          Today: <span className="number">{worldwideInfos.todayCases.toLocaleString('pt-BR')}</span>
+                          Today: <ValueDetail>{worldwideInfos.todayCases.toLocaleString('pt-BR')}</ValueDetail>
                         </p>
-                      </div>
-                      <div className="card-worldwide deaths">
-                        <div className="card-title"><h2>Deaths</h2></div>
+                      </Card>
+                      <Card>
+                        <div><H2>Deaths</H2></div>
                         <p>
-                          Total: <span className="number">{worldwideInfos.deaths.toLocaleString('pt-BR')}</span>
-                        </p>
-                        <p>
-                          Today: <span className="number">{worldwideInfos.todayDeaths.toLocaleString('pt-BR')}</span>
-                        </p>
-                      </div>
-                      <div className="card-worldwide recovered">
-                        <div className="card-title recovered"><h2>Recovered</h2></div>
-                        <p>
-                          Total: <span className="number">{worldwideInfos.recovered.toLocaleString('pt-BR')}</span>
+                          Total: <ValueDetail>{worldwideInfos.deaths.toLocaleString('pt-BR')}</ValueDetail>
                         </p>
                         <p>
-                          Today: <span className="number">{worldwideInfos.todayRecovered.toLocaleString('pt-BR')}</span>
+                          Today: <ValueDetail>{worldwideInfos.todayDeaths.toLocaleString('pt-BR')}</ValueDetail>
                         </p>
-                      </div>
-                    </div>
+                      </Card>
+                      <Card>
+                        <div><H2>Recovered</H2></div>
+                        <p>
+                          Total: <ValueDetail>{worldwideInfos.recovered.toLocaleString('pt-BR')}</ValueDetail>
+                        </p>
+                        <p>
+                          Today: <ValueDetail>{worldwideInfos.todayRecovered.toLocaleString('pt-BR')}</ValueDetail>
+                        </p>
+                      </Card>
+                    </CardsSubcontainer>
                     )}
-      </div>
-      <div className="linechart-container">
-        <div className="linechart-title-select">
-          <div className="linechart-title title">
-            <h1>
-              | <span className="covid">Covid</span> in WorldWide - Timeline
-            </h1>
+      </ContainerStyle>
+      <LinechartContainer>
+        <TitleSelect>
+          <div>
+            <H1>
+              | <CovidDetail>Covid</CovidDetail> in WorldWide - Timeline
+            </H1>
           </div>
-          <div className="select-container">
-            <select onChange={(e) => updateTimelineType(e.target.value)}>
+          <SelectContainer>
+            <Select onChange={(e) => updateTimelineType(e.target.value)}>
               <option value="cases" selected>Cases</option>
               <option value="deaths">Deaths</option>
               <option value="recovered">Recovered</option>
-            </select>
-          </div>
-        </div>
-        <div className="linechart-subcontainer">
-          <div className="linechart"><LineChart data={timelineType} options={configsLineChart} /></div>
-        </div>
-      </div>
-    </div>
+            </Select>
+          </SelectContainer>
+        </TitleSelect>
+        <ChartsSubcontainer>
+          <LinechartBox><LineChart data={timelineType} options={configsLineChart} /></LinechartBox>
+        </ChartsSubcontainer>
+      </LinechartContainer>
+    </WorldWidePage>
   );
 };

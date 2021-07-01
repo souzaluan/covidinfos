@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './Vaccines.scss';
+import { VaccinesPage, VaccinesDetail, ChartVaccinesSubcontainer } from './VaccinesStyle';
+import { H1, ContainerStyle } from '../ReusableStyles';
 import Disease from '../../Disease';
 import Map from '../Map';
 
@@ -28,17 +29,17 @@ export default () => {
   };
 
   return (
-    <div className="vaccines-page">
-      <div className="map-container">
-        <div className="map-title">
-          <h1>
-            | <span className="vaccines">Vaccines</span> in all Countries
-          </h1>
+    <VaccinesPage>
+      <ContainerStyle>
+        <div>
+          <H1>
+            | <VaccinesDetail>Vaccines</VaccinesDetail> in all Countries
+          </H1>
         </div>
-        <div className="map-subcontainer">
+        <ChartVaccinesSubcontainer>
           {vaccinesCountries.length && <Map data={vaccinesCountries} options={optionsMap} width="98%" height="100%" />}
-        </div>
-      </div>
-    </div>
+        </ChartVaccinesSubcontainer>
+      </ContainerStyle>
+    </VaccinesPage>
   );
 };

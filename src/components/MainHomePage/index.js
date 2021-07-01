@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Disease from '../../Disease';
 import ChartMain from '../PieChart';
 import Options from './ConfigsPieChart';
-import './Main.scss';
+import {
+  ChartBox, HomePageMain, HomePageSection, Infos, CardInfo,
+} from './StyleMain';
+import {
+  CovidDetail, H1, H2, ValueDetail,
+} from '../ReusableStyles';
 
 export default () => {
   const [covidContinentData, setCovidContinentData] = useState([]);
@@ -44,35 +49,35 @@ export default () => {
   }, [covidContinentData, decreasingTodayRecovered]);
 
   return (
-    <main className="homepage-container">
-      <section>
-        <div className="section-title">
-          <h1 className="title">
-            | <span className="covid">Covid</span> Today
-          </h1>
+    <HomePageMain>
+      <HomePageSection>
+        <div>
+          <H1>
+            | <CovidDetail>Covid</CovidDetail> Today
+          </H1>
         </div>
-        <div className="infos">
+        <Infos>
           {covidContinentData.map((item) => (
-            <div className="card-info">
-              <h2>
+            <CardInfo>
+              <H2>
                 {item.continent === 'Australia-Oceania'
                   ? 'Oceania'
                   : item.continent}
-              </h2>
-              <p className="cases">
-                Today cases: <span className="number">{item.todayCases.toLocaleString('pt-BR')}</span>
+              </H2>
+              <p>
+                Today cases: <ValueDetail>{item.todayCases.toLocaleString('pt-BR')}</ValueDetail>
               </p>
-              <p className="deaths">
-                Today deaths: <span className="number">{item.todayDeaths.toLocaleString('pt-BR')}</span>
+              <p>
+                Today deaths: <ValueDetail>{item.todayDeaths.toLocaleString('pt-BR')}</ValueDetail>
               </p>
-              <p className="recovered">
-                Today recovered: <span className="number">{item.todayRecovered.toLocaleString('pt-BR')}</span>
+              <p>
+                Today recovered: <ValueDetail>{item.todayRecovered.toLocaleString('pt-BR')}</ValueDetail>
               </p>
-            </div>
+            </CardInfo>
           ))}
-        </div>
+        </Infos>
         {covidContinentData.length === 6 && (
-          <div className="chart">
+          <ChartBox>
             <ChartMain
               data={dataCases}
               options={Options.cases}
@@ -83,9 +88,9 @@ export default () => {
               options={Options.recovered}
               height="400px"
             />
-          </div>
+          </ChartBox>
         )}
-      </section>
-    </main>
+      </HomePageSection>
+    </HomePageMain>
   );
 };

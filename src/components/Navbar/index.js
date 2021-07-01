@@ -1,39 +1,40 @@
 import React from 'react';
-import './Navbar.scss';
-import { Link } from 'react-router-dom';
 import PublicIcon from '@material-ui/icons/Public';
 import HomeIcon from '@material-ui/icons/Home';
 import RoomIcon from '@material-ui/icons/Room';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
+import {
+  HeaderContainer, HeaderNavbar, Navbar, Image, HeaderH3, H1, MainMenuH3, Anchor, LinkBox,
+} from './NavbarStyle';
 
 export default () => (
-  <nav className="navbar">
-    <header className="header">
-      <div className="header-container">
-        <div className="image-box">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0PrHAw7gV3ufzkwNYzMBwwyUmNmgbpQ48Zw&amp;usqp=CAU" alt="Covid in World icom" />
+  <Navbar>
+    <HeaderNavbar>
+      <HeaderContainer>
+        <div>
+          <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0PrHAw7gV3ufzkwNYzMBwwyUmNmgbpQ48Zw&amp;usqp=CAU" alt="Covid in World icom" />
         </div>
-        <div className="name-box">
-          <h1>Covid in World</h1>
-          <h3>Disease API used</h3>
+        <div>
+          <H1>Covid in World</H1>
+          <HeaderH3>Disease API used</HeaderH3>
         </div>
-      </div>
-    </header>
-    <main className="main-menu">
-      <h3>MAIN MENU</h3>
-      <div className="link">
-        <Link to="/"><span><HomeIcon /></span>Home</Link>
-      </div>
-      <div className="link">
-        <Link to="/worldwide"><span><PublicIcon /></span>Worldwide</Link>
-      </div>
-      <div className="link">
-        <Link to="/search"><span><RoomIcon /></span>Country</Link>
-      </div>
-      <div className="link">
-        <Link to="/vaccines"><span><LocalHospitalIcon /></span>Vaccines
-        </Link>
-      </div>
+      </HeaderContainer>
+    </HeaderNavbar>
+    <main>
+      <MainMenuH3>MAIN MENU</MainMenuH3>
+      <LinkBox>
+        <Anchor to="/"><span><HomeIcon /></span>Home</Anchor>
+      </LinkBox>
+      <LinkBox>
+        <Anchor to="/worldwide"><span><PublicIcon /></span>Worldwide</Anchor>
+      </LinkBox>
+      <LinkBox>
+        <Anchor to="/search"><span><RoomIcon /></span>Country</Anchor>
+      </LinkBox>
+      <LinkBox>
+        <Anchor to="/vaccines"><span><LocalHospitalIcon /></span>Vaccines
+        </Anchor>
+      </LinkBox>
     </main>
-  </nav>
+  </Navbar>
 );
